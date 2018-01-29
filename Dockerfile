@@ -26,5 +26,5 @@ COPY --from=builder /usr/local/bin/ /usr/local/bin/
 ADD dashing-icinga2/ /usr/share/dashing-icinga2/
 WORKDIR /usr/share/dashing-icinga2
 
-EXPOSE 8005
-ENTRYPOINT /usr/local/bin/dashing start -d -p 8005 --pid /var/run/thin.pid
+EXPOSE 8005 5665
+ENTRYPOINT /usr/local/bin/dashing start -p 8005 --pid /var/run/thin.pid

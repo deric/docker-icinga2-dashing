@@ -24,3 +24,5 @@ define RELEASE
 	docker push $(NAME):$(1)
 endef
 
+run: build
+	docker run -it $(NAME)
