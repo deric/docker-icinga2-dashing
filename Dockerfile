@@ -25,6 +25,7 @@ COPY --from=builder /var/lib/gems/2.3.0/ /var/lib/gems/2.3.0/
 COPY --from=builder /usr/local/bin/ /usr/local/bin/
 ADD dashing-icinga2/ /usr/share/dashing-icinga2/
 WORKDIR /usr/share/dashing-icinga2
-
+# remove default configuration, use ENV variables instead
+RUN rm config/icinga2.json
 EXPOSE 8005 5665
 ENTRYPOINT /usr/local/bin/dashing start -p 8005 --pid /var/run/thin.pid
